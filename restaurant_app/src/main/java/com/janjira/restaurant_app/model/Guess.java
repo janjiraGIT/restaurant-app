@@ -1,11 +1,15 @@
 package com.janjira.restaurant_app.model;
 
 import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -29,6 +33,10 @@ public class Guess implements Serializable{
 	
 	@NotBlank
 	private String guess_phone;
+	
+	@OneToOne(mappedBy = "guess", cascade = CascadeType.ALL, 
+            fetch = FetchType.LAZY, optional = false)
+	private Booking booking;
 
 	public Long getGuess_id() {
 		return guess_id;
