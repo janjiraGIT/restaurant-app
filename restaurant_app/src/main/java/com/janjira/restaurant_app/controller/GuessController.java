@@ -15,7 +15,7 @@ import com.janjira.restaurant_app.model.Guess;
 import com.janjira.restaurant_app.repository.GuessRepository;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/resapp")
 public class GuessController {
 	
 	@Autowired
