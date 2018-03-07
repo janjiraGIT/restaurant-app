@@ -28,16 +28,10 @@ public class Guess implements Serializable{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="guess")
 	private Long guess_id;
 	
-	@NotBlank
 	private String guess_name;
 	
-	@NotBlank
 	private String guess_phone;
 	
-	@OneToOne(mappedBy = "guess", cascade = CascadeType.ALL, 
-            fetch = FetchType.LAZY, optional = false)
-	private Booking booking;
-
 	public Long getGuess_id() {
 		return guess_id;
 	}
@@ -50,6 +44,7 @@ public class Guess implements Serializable{
 		return guess_phone;
 	}
 
+
 	public void setGuess_id(Long guess_id) {
 		this.guess_id = guess_id;
 	}
@@ -61,5 +56,7 @@ public class Guess implements Serializable{
 	public void setGuess_phone(String guess_phone) {
 		this.guess_phone = guess_phone;
 	}
+
+	
 }
 

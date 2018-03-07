@@ -1,11 +1,17 @@
 package com.janjira.restaurant_app.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.Basic;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
@@ -31,36 +37,23 @@ public class Booking implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="booking")
+	@Column(name = "booking_id")
 	private Long booking_id;
 	
-	@NotBlank
-	@Temporal(TemporalType.DATE)
-	private java.util.Date booking_date ;
+    @Basic 
+	private java.time.LocalDate booking_date ;
+		
+    @Basic
+	private java.time.LocalTime booking_time ;
 	
-	@NotBlank
-	@Temporal(TemporalType.TIME)
-	private java.util.Date booking_time ;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "table_id", referencedColumnName = "table_id")
+	private Tables tables;
 	
-	@NotBlank
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "booking")
-	private List<Tables> tables = new ArrayList<Tables>();
-	
-	@NotBlank
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "guess_id")
+	@OneToOne(cascade = CascadeType.ALL )
+	@JoinColumn(name = "guess_id", referencedColumnName = "guess_id" )
 	private Guess guess;
 	
-	public Booking() {
-		
-	}
-
-	public Booking(Date booking_date, Date booking_time, @NotBlank @NotBlank List<Tables> tables, @NotBlank Guess guess) {
-		this.booking_date = booking_date;
-		this.booking_time = booking_time;
-		this.tables = tables;
-		this.guess = guess;
-	}
-
 	public Guess getGuess() {
 		return guess;
 	}
@@ -73,15 +66,15 @@ public class Booking implements Serializable{
 		return booking_id;
 	}
 
-	public java.util.Date getBooking_date() {
+	public LocalDate getBooking_date() {
 		return booking_date;
 	}
 
-	public java.util.Date getBooking_time() {
+	public LocalTime getBooking_time() {
 		return booking_time;
 	}
 
-	public @NotBlank List<Tables> getTables() {
+	public Tables getTables() {
 		return tables;
 	}
 
@@ -89,15 +82,15 @@ public class Booking implements Serializable{
 		this.booking_id = booking_id;
 	}
 
-	public void setBooking_date(java.util.Date booking_date) {
+	public void setBooking_date(LocalDate booking_date) {
 		this.booking_date = booking_date;
 	}
 
-	public void setBooking_time(java.util.Date booking_time) {
+	public void setBooking_time(LocalTime booking_time) {
 		this.booking_time = booking_time;
 	}
 
-	public void setTables(List<Tables> tables) {
+	public void setTables(Tables tables) {
 		this.tables = tables;
 	}
 }

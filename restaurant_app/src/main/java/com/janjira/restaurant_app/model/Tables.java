@@ -2,6 +2,7 @@ package com.janjira.restaurant_app.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
@@ -24,17 +25,12 @@ public class Tables implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tables")
+	@Column(name = "table_id")
 	private Long table_id;
 
-	@NotBlank
 	private String table_detail;
 
-	@NotBlank
-	private Long table_limit;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "booking_id", nullable = false)
-	private Booking booking;
+	private Integer table_limit;
 
 	public Long getTable_id() {
 		return table_id;
@@ -44,7 +40,7 @@ public class Tables implements Serializable {
 		return table_detail;
 	}
 
-	public Long getTable_limit() {
+	public Integer getTable_limit() {
 		return table_limit;
 	}
 
@@ -56,7 +52,9 @@ public class Tables implements Serializable {
 		this.table_detail = table_detail;
 	}
 
-	public void setTable_limit(Long table_limit) {
+	public void setTable_limit(Integer table_limit) {
 		this.table_limit = table_limit;
 	}
+
+	
 }
