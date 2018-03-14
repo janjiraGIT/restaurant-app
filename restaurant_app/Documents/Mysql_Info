@@ -1,0 +1,16 @@
+/usr/local/mysql/bin 
+
+./mysql -u janjira -p 
+password : janmysql	
+
+create database restarant_app;
+use restarant_app;
+show tables;
+describe booking;
+drop table booking;
+select * from booking;
+
+
+
+
+
