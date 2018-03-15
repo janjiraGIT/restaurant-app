@@ -4,7 +4,7 @@
 password : janmysql	
 
 create database restarant_app;
-use restarant_app;
+use restaurant_app;
 show tables;
 describe booking;
 drop table booking;
