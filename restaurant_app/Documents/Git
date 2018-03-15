@@ -1,0 +1,7 @@
+/Users/janjiraeriksson/git/restaurant-app/
+
+git status
+git add . 
+git add add restaurant_app/src/main/java/com/janjira/restaurant_app/controller/TableController.java
+git commit - m "Added ..."
+git push origin master
