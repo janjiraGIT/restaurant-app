@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.janjira.restaurant_app.exception.ResourceNotFoundException;
-import com.janjira.restaurant_app.model.Guess;
+import com.janjira.restaurant_app.model.Guest;
 import com.janjira.restaurant_app.model.Tables;
-import com.janjira.restaurant_app.repository.GuessRepository;
+import com.janjira.restaurant_app.repository.GuestRepository;
 import com.janjira.restaurant_app.repository.TablesRepository;
 import com.janjira.restaurant_app.service.TableService;
 

@@ -1,31 +1,17 @@
 package com.janjira.restaurant_app.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotBlank;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
@@ -35,6 +21,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class Booking implements Serializable{ 
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="booking")
 	@Column(name = "booking_id")
@@ -46,52 +34,48 @@ public class Booking implements Serializable{
     @Basic
 	private java.time.LocalTime booking_time ;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "table_id", referencedColumnName = "table_id")
-	private Tables tables;
+	private Long guest_id; 
 	
-	@OneToOne(cascade = CascadeType.ALL )
-	@JoinColumn(name = "guess_id", referencedColumnName = "guess_id" )
-	private Guess guess;
-	
-	public Guess getGuess() {
-		return guess;
-	}
-
-	public void setGuess(Guess guess) {
-		this.guess = guess;
-	}
+	private Long table_id;
 
 	public Long getBooking_id() {
 		return booking_id;
 	}
 
-	public LocalDate getBooking_date() {
+	public java.time.LocalDate getBooking_date() {
 		return booking_date;
 	}
 
-	public LocalTime getBooking_time() {
+	public java.time.LocalTime getBooking_time() {
 		return booking_time;
 	}
 
-	public Tables getTables() {
-		return tables;
+	public Long getGuest_id() {
+		return guest_id;
+	}
+
+	public Long getTable_id() {
+		return table_id;
 	}
 
 	public void setBooking_id(Long booking_id) {
 		this.booking_id = booking_id;
 	}
 
-	public void setBooking_date(LocalDate booking_date) {
+	public void setBooking_date(java.time.LocalDate booking_date) {
 		this.booking_date = booking_date;
 	}
 
-	public void setBooking_time(LocalTime booking_time) {
+	public void setBooking_time(java.time.LocalTime booking_time) {
 		this.booking_time = booking_time;
 	}
 
-	public void setTables(Tables tables) {
-		this.tables = tables;
+	public void setGuest_id(Long guest_id) {
+		this.guest_id = guest_id;
+	}
+
+	public void setTable_id(Long table_id) {
+		this.table_id = table_id;
 	}
 }
 

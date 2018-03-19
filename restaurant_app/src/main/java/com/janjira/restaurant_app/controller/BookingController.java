@@ -34,8 +34,6 @@ public class BookingController {
 		return bookingService.getBookingById(booking_id);
 	}
 
-	// {"booking_date" : "2017-05-15", "booking_time" : "18:30", "tables_id" : 102,
-	// "guess_id": 1 }
 	@PostMapping("/booking")
 	public Booking createNote(@Valid @RequestBody Booking booking) {
 		return bookingService.createBooking(booking);

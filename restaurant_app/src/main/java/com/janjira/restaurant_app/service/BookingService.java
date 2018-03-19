@@ -35,13 +35,8 @@ public class BookingService {
 	
 	public ResponseEntity<?> deleteBooking(Long booking_id) {
 	    Booking booking = bookingRepository.findById(booking_id)
-	            		   .orElseThrow(() -> new ResourceNotFoundException("Guess", "id", booking_id));
+	            		   .orElseThrow(() -> new ResourceNotFoundException("Guest", "id", booking_id));
 	    	bookingRepository.delete(booking);
 	    return ResponseEntity.ok().build();
 	}	
-	
-	
-	//TODO :
-	// https://stackoverflow.com/questions/41772855/in-spring-boot-jpa-how-to-properly-post-an-object-whose-entity-representation-h
-
 }

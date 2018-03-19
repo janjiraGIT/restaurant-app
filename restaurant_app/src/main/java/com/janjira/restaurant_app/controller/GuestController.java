@@ -12,34 +12,34 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.janjira.restaurant_app.model.Guess;
-import com.janjira.restaurant_app.service.GuessService;
+import com.janjira.restaurant_app.model.Guest;
+import com.janjira.restaurant_app.service.GuestService;
 
 @RestController
 @RequestMapping("/resapp")
-public class GuessController {
+public class GuestController {
 	
 	@Autowired
-	GuessService guessService;
+	GuestService guestService;
 	
-	@GetMapping("/guess")
-	public List<Guess> getAllGuess() {
-		return guessService.getAllGuess() ;
+	@GetMapping("/guest")
+	public List<Guest> getAllGuests() {
+		return guestService.getAllGuests() ;
 	}
 	
-	@GetMapping("/guess/{guess_id}")
-	public Guess getGuessById(@PathVariable(value = "guess_id") Long guess_id) {
-		return guessService.getGuessById(guess_id);
+	@GetMapping("/guest/{guest_id}")
+	public Guest getGuestById(@PathVariable(value = "guest_id") Long guest_id) {
+		return guestService.getGuestById(guest_id);
 	}
 	
-	@PostMapping("/guess")
-	public Guess createNote(@Valid @RequestBody Guess guess) {
-		return guessService.createGuess(guess);
+	@PostMapping("/guest")
+	public Guest createGuest(@Valid @RequestBody Guest guest) {
+		return guestService.createGuest(guest);
 		
 	}
 	
-	@DeleteMapping("/guess/{guess_id}")
-	public ResponseEntity<?> deleteGuess(@PathVariable(value = "guess_id") Long guess_id) {
-	    return guessService.deleteGuess(guess_id);
+	@DeleteMapping("/guest/{guest_id}")
+	public ResponseEntity<?> deleteGuest(@PathVariable(value = "guest_id") Long guest_id) {
+	    return guestService.deleteGuest(guest_id);
 	}	
 }
