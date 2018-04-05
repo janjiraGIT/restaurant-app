@@ -23,9 +23,9 @@ public class TableService {
 		return tables;
 	}
 	
-	public Tables getTableById(Long table_id) {
-		return tablesRepository.findById(table_id)
-		.orElseThrow(() -> new ResourceNotFoundException("Table", "id", table_id));	
+	public Tables getTableById(Integer id) {
+		return tablesRepository.findById(id)
+		.orElseThrow(() -> new ResourceNotFoundException("Table", "id", id));	
 	}
 	
 	public Tables createTable(Tables table) {
@@ -33,9 +33,9 @@ public class TableService {
 		
 	}
 	
-	public ResponseEntity<?> deleteTable(Long table_id) {
-	    Tables table = tablesRepository.findById(table_id)
-	            		   .orElseThrow(() -> new ResourceNotFoundException("Table", "id", table_id));
+	public ResponseEntity<?> deleteTable(Integer id) {
+	    Tables table = tablesRepository.findById(id)
+	            		   .orElseThrow(() -> new ResourceNotFoundException("Table", "id", id));
 	    	tablesRepository.delete(table);
 	    return ResponseEntity.ok().build();
 	}	

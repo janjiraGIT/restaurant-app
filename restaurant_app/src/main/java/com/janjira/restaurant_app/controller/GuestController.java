@@ -28,7 +28,7 @@ public class GuestController {
 	}
 	
 	@GetMapping("/guest/{guest_id}")
-	public Guest getGuestById(@PathVariable(value = "guest_id") Long guest_id) {
+	public Guest getGuestById(@PathVariable(value = "guest_id") Integer guest_id) {
 		return guestService.getGuestById(guest_id);
 	}
 	
@@ -39,7 +39,7 @@ public class GuestController {
 	}
 	
 	@DeleteMapping("/guest/{guest_id}")
-	public ResponseEntity<?> deleteGuest(@PathVariable(value = "guest_id") Long guest_id) {
+	public ResponseEntity<?> deleteGuest(@PathVariable(value = "guest_id") Integer guest_id) {
 	    return guestService.deleteGuest(guest_id);
 	}	
 }

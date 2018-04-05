@@ -30,7 +30,7 @@ public class BookingController {
 	}
 
 	@GetMapping("/booking/{booking_id}")
-	public Booking getBookingById(@PathVariable(value = "booking_id") Long booking_id) {
+	public Booking getBookingById(@PathVariable(value = "booking_id") Integer booking_id) {
 		return bookingService.getBookingById(booking_id);
 	}
 
@@ -41,7 +41,7 @@ public class BookingController {
 	}
 
 	@DeleteMapping("/booking/{booking_id}")
-	public ResponseEntity<?> deleteGuess(@PathVariable(value = "booking_id") Long booking_id) {
+	public ResponseEntity<?> deleteGuess(@PathVariable(value = "booking_id") Integer booking_id) {
 		return bookingService.deleteBooking(booking_id);
 	}
 }

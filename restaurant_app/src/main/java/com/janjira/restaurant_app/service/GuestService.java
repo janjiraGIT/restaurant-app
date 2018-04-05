@@ -23,9 +23,9 @@ public class GuestService {
 		return guests;
 	}
 	
-	public Guest getGuestById(Long guest_id) {
-		return guestRepository.findById(guest_id)
-		.orElseThrow(() -> new ResourceNotFoundException("Guest", "id", guest_id));	
+	public Guest getGuestById(Integer id) {
+		return guestRepository.findById(id)
+		.orElseThrow(() -> new ResourceNotFoundException("Guest", "id", id));	
 	}
 	
 	public Guest createGuest(Guest guest) {
@@ -33,9 +33,9 @@ public class GuestService {
 		
 	}
 	
-	public ResponseEntity<?> deleteGuest(Long guest_id) {
-	    Guest guest = guestRepository.findById(guest_id)
-	            		   .orElseThrow(() -> new ResourceNotFoundException("Guest", "id", guest_id));
+	public ResponseEntity<?> deleteGuest(Integer id) {
+	    Guest guest = guestRepository.findById(id)
+	            		   .orElseThrow(() -> new ResourceNotFoundException("Guest", "id", id));
 	    	guestRepository.delete(guest);
 	    return ResponseEntity.ok().build();
 	}	

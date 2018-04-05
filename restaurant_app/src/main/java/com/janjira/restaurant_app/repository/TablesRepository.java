@@ -8,6 +8,6 @@ import com.janjira.restaurant_app.model.Tables;
 
 
 @Repository
-public interface TablesRepository extends JpaRepository<Tables, Long> {
+public interface TablesRepository extends JpaRepository<Tables, Integer> {
 
 }

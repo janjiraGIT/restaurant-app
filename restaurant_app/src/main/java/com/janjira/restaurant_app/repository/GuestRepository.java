@@ -7,6 +7,6 @@ import com.janjira.restaurant_app.model.Guest;
 
 
 @Repository
-public interface GuestRepository extends JpaRepository<Guest, Long> {
+public interface GuestRepository extends JpaRepository<Guest, Integer> {
 
 }

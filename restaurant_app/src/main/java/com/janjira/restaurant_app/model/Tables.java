@@ -5,56 +5,54 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Table(name = "tables")
-@SequenceGenerator(name = "tables", initialValue = 50)
 @EntityListeners(AuditingEntityListener.class)
 public class Tables implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tables")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "table_id")
-	private Long table_id;
+	private Integer id;
+	private String detail;
+	private String maxPerson;
 
-	private String table_detail;
+	public Tables() {
 
-	private Integer table_limit;
-
-	public Long getTable_id() {
-		return table_id;
 	}
 
-	public String getTable_detail() {
-		return table_detail;
+	public String getMaxPerson() {
+		return maxPerson;
 	}
 
-	public Integer getTable_limit() {
-		return table_limit;
+	public void setMaxPerson(String maxPerson) {
+		this.maxPerson = maxPerson;
 	}
 
-	public void setTable_id(Long table_id) {
-		this.table_id = table_id;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setTable_detail(String table_detail) {
-		this.table_detail = table_detail;
+	public String getDetail() {
+		return detail;
 	}
 
-	public void setTable_limit(Integer table_limit) {
-		this.table_limit = table_limit;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+
+
 }

@@ -23,9 +23,9 @@ public class BookingService {
 		return booking;
 	}
 	
-	public Booking getBookingById(Long booking_id) {
-		return bookingRepository.findById(booking_id)
-		.orElseThrow(() -> new ResourceNotFoundException("Booking", "id", booking_id));	
+	public Booking getBookingById(Integer id) {
+		return bookingRepository.findById(id)
+		.orElseThrow(() -> new ResourceNotFoundException("Booking", "id", id));	
 	}
 	
 	public Booking createBooking(Booking booking) {
@@ -33,9 +33,9 @@ public class BookingService {
 		
 	}
 	
-	public ResponseEntity<?> deleteBooking(Long booking_id) {
-	    Booking booking = bookingRepository.findById(booking_id)
-	            		   .orElseThrow(() -> new ResourceNotFoundException("Guest", "id", booking_id));
+	public ResponseEntity<?> deleteBooking(Integer id) {
+	    Booking booking = bookingRepository.findById(id)
+	            		   .orElseThrow(() -> new ResourceNotFoundException("Booking", "id", id));
 	    	bookingRepository.delete(booking);
 	    return ResponseEntity.ok().build();
 	}	

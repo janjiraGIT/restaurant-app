@@ -37,7 +37,7 @@ public class TableController {
 	
 	//http://localhost:8080/resapp/table/3052
 	@GetMapping("/table/{table_id}")
-	public Tables getTableById(@PathVariable(value = "table_id") Long table_id) {
+	public Tables getTableById(@PathVariable(value = "table_id") Integer table_id) {
 		return tableService.getTableById(table_id);
 	}
 
@@ -49,7 +49,7 @@ public class TableController {
 	
 	//http://localhost:8080/resapp/table/3052
 	@DeleteMapping("/table/{table_id}")
-	public ResponseEntity<?> deleteTable(@PathVariable(value = "table_id") Long table_id) {
+	public ResponseEntity<?> deleteTable(@PathVariable(value = "table_id") Integer table_id) {
 	   return tableService.deleteTable(table_id);
 	}	
 }
